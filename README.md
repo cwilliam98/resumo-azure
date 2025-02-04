@@ -37,4 +37,25 @@ Baseado em consumo
       - Por exemplo: patches de software e atualizações podem ser aplicados automaticamente.
 - Gerenciabilidade - Se refere a ter várias formas de gerenciar recursos na azure, navegador, linha de comando, APIs, e etc.
 
+## Tipos de Serviços de Nuvem
 
+### IaaS - Infraestrutura como serviço
+
+São exemplos de infraestrutura comom serviço, servidores e armazenamento, firewalls, planta física. Temos mais acesso no contexto de personalização desse recurso.
+- É mais flexível
+
+
+### PaaS - Plataforma como serviço
+São exemplos de Plataforma como serviço, Sistemas operacionais, ferramentas para desenvolvedores, analise de negócios de gerenciamento de database. Fornece um ambiente para a criação, o teste e a implantação de aplicativos de software, sem focar no gerenciamento da infraestrutura subjacente.
+- Focado no desenvolvimento de aplicativos.
+
+### SaaS - Software como serviço
+São exemplos de Software como serviço, aplicativos/apps hospedados. Os usuários se conectam e usam aplicativos com base em nuvem pela internet, por exemplo, Microsoft Office 365, email, calendários.
+- Modelo de preço de pagamento conforme o uso, modelo de assinatura.
+
+Visão geral de cada tipo de serviço:
+
+![image](https://github.com/user-attachments/assets/53432929-2775-4347-a5b3-8725e9399bb5)
+
+## Modelo de responsabilidade compartilhada
+![image](https://github.com/user-attachments/assets/6e23b83b-e837-499d-ac99-d3a8be51c2d5)
