@@ -123,6 +123,31 @@ O Código baseado em eventos é executado quando chamado, sem exigir uma infraes
 ### DNS do Azure
 - Confiabilidade e desempenho aproveitando uma rede global de servidores de nome DNS usando a rede Anycast.
 
+## Identidade, Acesso e Segurança
 
+### Microsoft Entra ID
+É o serviço de gerenciamento de identidades e acesso baseado em nuvem do Microsoft Azure
+- Autenticação (os funcionários entram para acessar os recursos).​
+- Logon único (SSO)​
+- Gerenciamento de aplicativos.​
+- Negócios para Negócios (B2B).​
+- Gerenciamento de dispositivos.​
+
+### Microsoft Entra Domain Services
+- Obtenha os benefícios dos serviços de domínio baseados em nuvem sem gerenciar os controladores de domínio.​
+- Execute aplicativos herdados (que não podem utilizar os padrões de autenticação modernos) na nuvem.​
+- Sincronizar automaticamente a partir do Microsoft Entra ID.​
+  
+### Acesso Condicional​
+É uma ferramenta usada para permitir ou bloquear o acesso com base e alguns itens, por exemplo:
+
+- Associação de usuário ou grupo​
+- Local do IP​
+- Dispositivo​
+- Aplicativo​
+- Detecção de risco​
+
+### Confiança zero
+Parte do princípio que toda camada de segurança pode ter alguma falha e por isso sempre é indicado incluir várias formas de validações e segurança.
 
 
