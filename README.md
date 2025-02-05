@@ -59,3 +59,70 @@ Visão geral de cada tipo de serviço:
 
 ## Modelo de responsabilidade compartilhada
 ![image](https://github.com/user-attachments/assets/6e23b83b-e837-499d-ac99-d3a8be51c2d5)
+
+## Regiões
+- As regiões são compostas por um ou mais datacenters muito próximos
+- Fornecem flexibilidade e escala para reduzir a latência do cliente
+- As regiões preservam a residência dos dados com uma oferta abrangente de conformidade
+
+## Zonas de disponibilidade
+São os datacenters e ficam dentro das regiôes.
+- Fornece proteção contra tempo de inatividade devido a falha no datacenter.
+
+## Pares de Regiões
+
+Existe uma região par para cada região original, possui replicação automática para alguns serviços.
+
+![image](https://github.com/user-attachments/assets/9a108c33-635e-4895-97bd-00b76bff098e)
+
+## Regiões Soberanas
+Hoje existem duas regiões soberanas, a do exército dos EUA e a da China, ambas são somente acessíveis para esse EUA e China respectivamente.
+
+## Grupos de recursos
+São locais onde ficam organizados os recursos que são criados, são para manter a organização dessa forma ficam mais fáceis de serem encontrados. 
+- Os recursos podem existir em apenas um grupo de recursos.
+- Podem existir em diferentes regiões.
+- Os aplicativos pode utilizar vários grupos de recursos.
+
+## Assinaturas do Azure
+![image](https://github.com/user-attachments/assets/2546a9d0-7849-42b4-b36c-709add1e2d8d)
+
+Uma conta pode ter várias assinaturas, mas uma assinatura está associada a apenas uma conta.
+Cada grupo de trabalho pode ter a sua assinatura, dessa forma fica mais fácil separar os custos.
+
+## Grupos de gerenciamento
+- Podem incluir várias assinaturas do Azure
+- As assinaturas herdam as condições aplicadas ao grupo de gerenciamento
+
+## Serviços de computação do Azure
+A Computação do Azure é um serviço sob demanda que fornece recursos de computação, como discos, processadores, memória, rede e sistemas operacionais.
+
+### Máquinas virtuais do Azure
+- As máquinas virtuais do Azure são emulações de software de computadores físicos.
+
+### Conjuntos de disponibilidade de VM
+São usados para mitigar problemas de indisponibilidade das máquinas, geralmente são separados em 3 domínios de falha onde são replicadas as máquinas.
+
+### Área de trabalho virtual do azure
+É uma virtualização de área de trabalho e aplicativo executada na nuvem.
+- Reduz o risco de que o recurso seja deixado para trás.
+- Implantações reais de várias sessões.
+
+### Serviços de contêineres do Azure
+Fornecem um ambiente leve e virtualizado que não exige o gerenciamento dos sistema operacional e pode responder a alteraçoes sob demanda.
+
+### Azure Functions
+O Código baseado em eventos é executado quando chamado, sem exigir uma infraestrutura de servidor durante períodos inativos.
+
+### Serviços de rede do Azure
+- Permite que os recursos do Azure se comuniquem uns com os outros, com a Internet e com as rede locais.
+- Pontos de extremidade públicos ou privados.
+#### Gateway de VPN
+- é usado para enviar tráfego criptografado entre uma rede virtual do Azure e uma no local pela internet pública.
+
+### DNS do Azure
+- Confiabilidade e desempenho aproveitando uma rede global de servidores de nome DNS usando a rede Anycast.
+
+
+
+
