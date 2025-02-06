@@ -1,5 +1,5 @@
 # Resumo Azure
-Resumo sobre a cloud da Azure
+Resumo sobre a cloud da Azure para a certificação az-900
 
 # Introdução
 Existem três modelos de nuvem.
@@ -60,39 +60,76 @@ Visão geral de cada tipo de serviço:
 ## Modelo de responsabilidade compartilhada
 ![image](https://github.com/user-attachments/assets/6e23b83b-e837-499d-ac99-d3a8be51c2d5)
 
-## Regiões
+## Infraestrutura
+A infraestrutura física da Azure são iguais aos grandes datacenters corporativos, instalações com recursos organizados em racks com energia,  refrigeração e infraestrutura de rede dedicadas.
+A Azure possui datacenters em todo o mundo, no entanto esses datacenters individuais não são acessíveis diretamente. Eles são agrupados em Regiões do Azure ou em Zonas de Disponibilidade do Azure projetadas para ajudá-lo a obter resiliência e confiabilidade para suas cargas de trabalho críticas para os negócios.
+
+### Regiões
+Uma região é uma área geográfica do planeta que contém pelo menos um data center e está conectado a uma rede de baixa latência.
 - As regiões são compostas por um ou mais datacenters muito próximos
 - Fornecem flexibilidade e escala para reduzir a latência do cliente
-- As regiões preservam a residência dos dados com uma oferta abrangente de conformidade
+- As regiões preservam a residência dos dados com uma oferta abrangente de conformidade. No entanto, nem todas as Regiões do Azure atualmente dão suporte a zonas de disponibilidade.
 
-## Zonas de disponibilidade
-São os datacenters e ficam dentro das regiôes.
+### Zonas de disponibilidade
+São os datacenters separados fisicamente e ficam dentro das regiôes.
 - Fornece proteção contra tempo de inatividade devido a falha no datacenter.
+- Para garantir resiliência, no mínimo três zonas de disponibilidade separadas estão presentes em todas as regiões habilitadas.
+- Permitem executar aplicativos críticos com alta disponibilidade.
+- Recursos de computação, armazenamento, rede e dados podem ser replicados entre zonas.
+- Pode haver custos adicionais para duplicação de serviços e transferência de dados.
+- **Serviços em zonas:** Recurso fixado a uma zona específica (Ex.: VMs, discos gerenciados, IPs).
+- **Serviços com redundância de zona:** Replicação automática entre zonas (Ex.: Armazenamento com redundância de zona, Banco de Dados SQL).
+- **Serviços não regionais:** Sempre disponíveis em múltiplas geografias do Azure, resistentes a falhas de zona e região.
+  
+  ![image](https://github.com/user-attachments/assets/b884b094-b585-41aa-9d22-4e021fcd6335)
+  Fonte: Microsoft
 
-## Pares de Regiões
-
+### Pares de Regiões
 Existe uma região par para cada região original, possui replicação automática para alguns serviços.
+- Ficam localizadas a pelo menos 300 milhas ou 480km de distância uma da outra.
+- Isso reduz a probabilidade de interrupções devido a desastres naturais, conflitos civis, quedas de energia ou interrupções de rede física.
 
 ![image](https://github.com/user-attachments/assets/9a108c33-635e-4895-97bd-00b76bff098e)
 
-## Regiões Soberanas
+### Regiões Soberanas
 Hoje existem duas regiões soberanas, a do exército dos EUA e a da China, ambas são somente acessíveis para esse EUA e China respectivamente.
+- US DoD Central, US Gov – Virgínia, US Gov Iowa, entre outros: essas regiões são instâncias lógicas e físicas do Azure isoladas da rede, destinadas a parceiros e órgãos do governo dos EUA. Esses datacenters são operados por cidadãos selecionados dos EUA e incluem certificações de conformidade adicionais.
+- Leste da China, Norte da China, entre outros: essas regiões estão disponíveis por meio de uma parceria exclusiva entre a Microsoft e a 21Vianet, segundo a qual a Microsoft não mantém diretamente os data centers.
 
 ## Grupos de recursos
 São locais onde ficam organizados os recursos que são criados, são para manter a organização dessa forma ficam mais fáceis de serem encontrados. 
 - Os recursos podem existir em apenas um grupo de recursos.
 - Podem existir em diferentes regiões.
 - Os aplicativos pode utilizar vários grupos de recursos.
+- Quando você aplicar uma ação a um grupo de recursos, ela será aplicada a todos os recursos dentro do grupo.
+- Se excluir um grupo de recursos, todos os recursos serão excluidos.
+- Se você conceder ou negar acesso a um grupo de recursos, vai conceder ou negar acesso a todos os recursos dentro do grupo de recursos.
 
 ## Assinaturas do Azure
+São uma unidade de gerenciamento, cobrança e escala. São um modo de organizar logicamente os recursos, as assinaturas permitem organizar logicamente seus grupos de recursos e facilitar a cobrança.
 ![image](https://github.com/user-attachments/assets/2546a9d0-7849-42b4-b36c-709add1e2d8d)
 
-Uma conta pode ter várias assinaturas, mas uma assinatura está associada a apenas uma conta.
-Cada grupo de trabalho pode ter a sua assinatura, dessa forma fica mais fácil separar os custos.
+- Uma conta pode ter várias assinaturas, mas uma assinatura está associada a apenas uma conta.
+- Cada grupo de trabalho pode ter a sua assinatura, dessa forma fica mais fácil separar os custos.
+
+As assinaturas do Azure podem ser usadas para definir limites em relação a produtos, serviços e recursos do Azure. Existem dois tipos de limites de assinatura.
+
+**Limite de cobrança:** Esse tipo de assinatura determina como uma conta do Azure é cobrada pelo uso do Azure. Você pode criar várias assinaturas para atender a diferentes tipos de requisitos de cobrança. O Azure gera relatórios de cobrança e faturas separados para cada assinatura, para que você possa organizar e gerenciar os custos.
+**Limite de controle de acesso:** O Azure aplica políticas de gerenciamento de acesso no nível da assinatura, e você pode criar assinaturas separadas para refletir diferentes estruturas organizacionais. Um exemplo disso é que, em um negócio, você tem diferentes departamentos aos quais aplica políticas de assinatura do Azure distintas. Esse modelo de cobrança permite gerenciar e controlar o acesso aos recursos que os usuários provisionam com assinaturas específicas.
 
 ## Grupos de gerenciamento
+Os grupos de gerenciamento do Azure fornecem um nível de escopo acima das assinaturas. Você organiza as assinaturas em contêineres chamados grupos de gerenciamento e aplica as condições de governança a esses grupos.
+
 - Podem incluir várias assinaturas do Azure
 - As assinaturas herdam as condições aplicadas ao grupo de gerenciamento
+
+    ![image](https://github.com/user-attachments/assets/2556ff2b-8de8-455d-8bcf-b37df4f526ba)
+    Fonte: Microsoft
+Fatos importantes sobre os grupos de gerenciamento:
+
+- 10.000 grupos de gerenciamento podem ter suporte em um único diretório.
+- Uma árvore do grupo de gerenciamento pode dar suporte a até seis níveis de profundidade. Esse limite não inclui o nível raiz nem o nível da assinatura.
+- Cada grupo de gerenciamento e assinatura podem dar suporte a somente um pai.
 
 ## Serviços de computação do Azure
 A Computação do Azure é um serviço sob demanda que fornece recursos de computação, como discos, processadores, memória, rede e sistemas operacionais.
