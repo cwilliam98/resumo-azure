@@ -285,6 +285,123 @@ Há vários benefícios de usar o ExpressRoute como o serviço de conexão entre
 - Personalizar redes virtuais
 - Registros de alias
 
+## Contas de armazenamento do Azure
+
+Uma conta de armazenamento fornece um namespace exclusivo para os dados do Armazenamento do Azure que podem ser acessados de qualquer lugar do mundo por HTTP ou HTTPS. Os dados nesta conta são seguros, altamente disponíveis, duráveis e maciçamente escalonáveis.
+
+![alt text](image.png)
+Fonte: Microsoft
+
+Ao nomear sua conta de armazenamento, lembre-se dessas regras:
+
+- Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
+- O nome da sua conta de armazenamento deve ser exclusivo no Azure. Duas contas de armazenamento não podem ter o mesmo nome. Isso dá suporte à capacidade de ter um namespace exclusivo e acessível no Azure.
+
+A tabela a seguir mostra formato de ponto de extremidade dos serviços do Armazenamento do Azure.
+![alt text](image-1.png)
+Fonte: Microsoft
+
+Os fatores que ajudam a determinar qual opção de redundância você deve escolher incluem:
+
+- Como os dados são replicados na região primária.
+- Se os dados são replicados em uma segunda região que está geograficamente distante da região primária, para protegê-los contra desastres regionais.
+- Se o aplicativo requer acesso de leitura aos dados replicados na região secundária, caso a região primária não esteja disponível.
+
+### Armazenamento com redundância local
+
+O LRS replica seus dados três vezes em um único data center na região primária. O LRS oferece pelo menos 11 noves de durabilidade (99,999999999%) dos objetos em um determinado ano.
+O LRS é a opção de redundância de menor custo e oferece a menor durabilidade em comparação com outras opções.
+
+### Armazenamento com redundância de zona
+
+Em regiões habilitadas como zonas de disponibilidade, o ZRS (armazenamento com redundância de zona) replica os dados do Armazenamento do Azure de maneira síncrona em três zonas de disponibilidade do Azure na região primária. O ZRS oferece durabilidade para objetos de dados do Armazenamento do Azure de, pelo menos, 12 noves (99,9999999999%) em um dado ano.
+Com o ZRS, seus dados ainda podem ser acessados por operações de leitura e de gravação, mesmo em caso de não disponibilidade de uma zona.
+A Microsoft recomenda usar o ZRS na região primária para cenários que exigem alta disponibilidade. O ZRS também é recomendado para restringir a replicação de dados em um país ou uma região para atender aos requisitos de governança de dados.
+
+### Redundância em uma região secundária
+
+Para aplicativos que exigem alta durabilidade, você pode optar por também copiar os dados em sua conta de armazenamento para uma região secundária que esteja a centenas de quilômetros de distância da região primária.
+
+#### Armazenamento com redundância geográfica
+
+O GRS copia seus dados de maneira síncrona três vezes em um único local físico na região primária usando LRS. Em seguida, ele copia os dados de maneira assíncrona em um único local físico na região secundária (o par da região) usando LRS. O GRS oferece durabilidade para objetos de dados do Armazenamento do Azure de, pelo menos, 16 noves (99,99999999999999%) em um dado ano.
+
+#### Armazenamento com redundância de zona geográfica
+
+O GZRS combina a alta disponibilidade fornecida pela redundância entre zonas de disponibilidade com a proteção contra interrupções regionais fornecidas pela replicação geográfica. Os dados em uma conta de armazenamento GZRS são copiados entre três zonas de disponibilidade do Azure na região primária (semelhante ao ZRS) e são replicados em uma região geográfica secundária usando LRS para proteção contra desastres regionais. A Microsoft recomenda o uso do GZRS para aplicativos que exigem consistência, durabilidade e disponibilidade máximas, excelente desempenho e resiliência para recuperação de desastres.
+O GZRS foi projetado para fornecer pelo menos 16 noves (99,99999999999999%) de durabilidade dos objetos durante um determinado ano.
+
+### Armazenamento do Azure
+
+A plataforma de Armazenamento do Microsoft Azure inclui os seguintes serviços de dados:
+
+- **Blobs do Azure:** um repositório de objetos altamente escalonável para texto e dados binários. Ela também inclui suporte para análise de Big Data por meio do Data Lake Storage Gen2.
+- **Arquivos do Azure:** compartilhamentos de arquivos gerenciados para implantações locais e em nuvem.
+- **Filas do Azure:** um armazenamento de mensagens para um sistema de mensagens confiável entre componentes do aplicativo.
+- **Azure Disks:** volumes de armazenamento em nível de bloco para VMs do Azure.
+- **Tabelas do Azure:** opção de tabela NoSQL para dados estruturados e não relacionais.
+
+### Benefícios do Armazenamento do Azure
+
+Os serviços de Armazenamento do Microsoft Azure oferecem os seguintes benefícios aos desenvolvedores de aplicativos e profissionais de TI:
+
+- Durável e altamente disponível.
+- Seguro
+- Escalonável
+- Gerenciado
+- Acessível
+
+### Blobs
+
+O armazenamento de Blobs do Azure é uma solução de armazenamento de objetos para a nuvem. Ele pode armazenar grandes quantidades de dados, como texto ou dados binários. O armazenamento de Blobs do Azure não é estruturado, o que significa que não há nenhuma restrição quanto aos tipos de dados que ele pode armazenar. O armazenamento de Blobs pode gerenciar milhares de carregamentos simultâneos, grandes quantidades de dados de vídeo, arquivos de log em constante crescimento e pode ser acessado de qualquer lugar com uma conexão com a Internet.
+
+O armazenamento de Blobs é ideal para:
+
+- Fornecimento de imagens ou de documentos diretamente a um navegador.
+- Armazenamento de arquivos para acesso distribuído.
+- Transmissão por streaming de áudio e vídeo.
+- Armazenamento de dados de backup e restauração, recuperação de desastres e arquivamento.
+- Armazenamento de dados para análise por um serviço local ou hospedado no Azure.
+
+O Armazenamento do Azure oferece diferentes camadas de acesso para seu armazenamento de blobs, ajudando você a armazenar dados de objeto da maneira mais econômica. As camadas de acesso disponíveis incluem:
+
+- **Camada de acesso quente:** otimizada para armazenar dados que são acessados com frequência (por exemplo, imagens de seu site).
+- **Camada de acesso esporádico:** otimizada para dados acessados com menos frequência e armazenados por pelo menos 30 dias (por exemplo, faturas de seus clientes).
+- **Camada de acesso frio:** otimizada para armazenamento de dados acessados com pouca frequência e armazenados por pelo menos 90 dias.
+- **Camada de acesso aos arquivos:** adequada para dados acessados raramente e armazenados por pelo menos 180 dias, com requisitos de latência flexíveis (por exemplo, backups de longo prazo).
+
+### Arquivos do Azure
+
+O armazenamento dos Arquivos do Azure oferece compartilhamento de arquivo totalmente gerenciado na nuvem e acessível por meio do protocolo SMB ou NFS (Network File System) padrão do setor.
+
+Principais benefícios dos Arquivos do Azure:
+
+- **Acesso compartilhado**
+- **Totalmente gerenciados**
+- **Script e ferramentas**
+- **Resiliência**
+- **Programação familiar**
+
+### Filas do Azure
+
+O Armazenamento de Filas do Azure é um serviço usado para armazenar grandes quantidades de mensagens. Após o armazenamento, você pode acessar as mensagens em qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS.Cada mensagem individual pode ter até 64 KB de tamanho. As filas são normalmente usadas para criar uma lista de pendências de trabalho para processamento assíncrono.
+
+### Discos do Azure
+
+O armazenamento em disco do Azure ou o os discos gerenciados do Azure são volumes de armazenamento em nível de bloco gerenciados pelo Azure para serem usados com VMs do Azure. Conceitualmente, eles são iguais a um disco físico, mas são virtualizados, oferecendo maior resiliência e disponibilidade do que um disco físico.
+
+### Tabelas do Azure
+
+O Armazenamento de Tabelas do Microsoft Azure armazena grandes quantidades de dados estruturados. As tabelas do Azure são um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure.
+
+## Migrações para Azure
+
+O Migrações para Azure é um serviço que ajuda você a migrar de um ambiente local para a nuvem e funciona como um hub para ajudar você a gerenciar a avaliação e a migração do datacenter local para o Azure. Elas fornecem o seguinte:
+
+- Plataforma de migração unificada
+- Variedade de ferramentas
+- Avaliação e migração
+
 ## Identidade, Acesso e Segurança
 
 ### Microsoft Entra ID
