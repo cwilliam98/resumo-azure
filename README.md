@@ -433,3 +433,20 @@ O Migrações para Azure é um serviço que ajuda você a migrar de um ambiente 
 ### Confiança zero
 
 Parte do princípio que toda camada de segurança pode ter alguma falha e por isso sempre é indicado incluir várias formas de validações e segurança.
+
+### Camadas da defesa em profundidade
+
+![alt text](image-2.png)
+Fonte: Microsoft
+
+Cada camada fornece proteção, de modo que se uma camada for violada, uma camada seguinte já estará em vigor para impedir a exposição adicional. Essa abordagem elimina a dependência de qualquer camada única de proteção. Ela desacelera um ataque e fornece informações de alerta sobre as quais as equipes de segurança podem agir, automática ou manualmente.
+
+Aqui está uma breve visão geral da função de cada camada:
+
+- A camada de segurança física é a primeira linha de defesa para proteger o hardware de computação no datacenter.
+- A camada de identidade e acesso controla o acesso à infraestrutura e ao controle de alterações.
+- A camada de perímetro usa a proteção contra DDoS (ataque de negação de serviço distribuído) para filtrar ataques em grande escala antes que eles possam causar uma negação de serviço para os usuários.
+- A camada de rede limita a comunicação entre recursos por meio de controles de acesso e segmentação.
+- A camada de computação protege o acesso a máquinas virtuais.
+- A camada de aplicativo ajuda a garantir que os aplicativos estejam seguros e livres de vulnerabilidades de segurança.
+- A camada de dados controla o acesso aos dados corporativos e do cliente que você precisa proteger.
