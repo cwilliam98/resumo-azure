@@ -47,3 +47,18 @@ O Azure Key Vault tem duas camadas de serviço: **Standard**, que faz a criptogr
 
 O Azure Key Vault impõe o protocolo TLS (Transport Layer Security) para proteger os dados quando ele estiver viajando entre o Azure Key Vault e os clientes. Os clientes negociam uma conexão TLS com o Azure Key Vault.
 O PFS (Perfect Forward Secrecy) protege as conexões entre os sistemas cliente dos clientes e os serviços de nuvem da Microsoft por chaves exclusivas. As conexões também usam comprimentos de chave de criptografia de 2.048 bits baseados em RSA.
+
+## Autenticar-se no Azure Key Vault
+
+A autenticação com o Key Vault funciona com o Microsoft Entra ID. Para aplicativos, há duas maneiras e obter uma entidade de serviço:
+
+- Habilite uma identidade gerenciada atribuída pelo sistema para o aplicativo. Com a identidade gerenciada, o Azure gerencia internamente a entidade de serviço do aplicativo e autentica automaticamente o aplicativo com outros serviços do Azure. (É recomendável usar uma identidade gerenciada atribuída pelo sistema)
+- Se você não puder usar a identidade gerenciada, registre o aplicativo em seu locatário do Microsoft Entra. O registro também cria um segundo objeto de aplicativo que identifica o aplicativo em todos os locatários.
+
+### Autenticação no Key Vault no código do aplicativo
+
+O SDK do Key Vault está usando a biblioteca cliente do Azure Identity, que permite a autenticação integrada ao Key Vault em diversos ambientes com o mesmo código. A tabela a seguir fornece informações sobre as bibliotecas de clientes da Identidade do Azure:
+
+| .NET                                                                                                      | Python                                                                                                           | Java                                                                                                         | JavaScript                                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| [SDK de Identidade do Azure](https://learn.microsoft.com/pt-br/dotnet/api/overview/azure/identity-readme) | [SDK de Identidade do Azure Python](https://learn.microsoft.com/pt-br/python/api/overview/azure/identity-readme) | [SDK de Identidade do Azure Java](https://learn.microsoft.com/pt-br/java/api/overview/azure/identity-readme) | [SDK de Identidade do Azure JavaScript](https://learn.microsoft.com/pt-br/javascript/api/overview/azure/identity-readme) |
